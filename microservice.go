@@ -35,6 +35,7 @@ func GetPersonEndPoint(w http.ResponseWriter, req *http.Request) {
 			return
 		}
 	}
+
 	json.NewEncoder(w).Encode(&Person{})
 }
 
@@ -59,6 +60,7 @@ func DeletePersonEndPoint(w http.ResponseWriter, req *http.Request) {
 			break
 		}
 	}
+	
 	json.NewEncoder(w).Encode(people)
 }
 
@@ -75,4 +77,3 @@ func main() {
 
 	log.Fatal(http.ListenAndServe(":3000", router))
 }
-
