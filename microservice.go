@@ -60,7 +60,7 @@ func DeletePersonEndPoint(w http.ResponseWriter, req *http.Request) {
 			break
 		}
 	}
-	
+
 	json.NewEncoder(w).Encode(people)
 }
 
@@ -76,4 +76,5 @@ func main() {
 	router.HandleFunc("/people/{id}", DeletePersonEndPoint).Methods("DELETE")
 
 	log.Fatal(http.ListenAndServe(":3000", router))
+
 }
