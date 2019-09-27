@@ -75,6 +75,7 @@ func main() {
 	people = append(people, Person{ID: "2", FirstName: "Norberto", LastNane: "Enomoto", Address: &Address{City: "SP", State: "SP"}})
 	people = append(people, Person{ID: "3", FirstName: "Kitri", LastNane: "Enomoto", Address: &Address{City: "SP", State: "SP"}})
 	people = append(people, Person{ID: "4", FirstName: "Kibana", LastNane: "Enomoto", Address: &Address{City: "SP", State: "SP"}})
+	people = append(people, Person{ID: "5", FirstName: "Sophie", LastNane: "Enomoto", Address: &Address{City: "SP", State: "SP"}})
 
 	router.HandleFunc("/people", GetPeopleEndPoint).Methods("GET")
 	router.HandleFunc("/people/{id}", GetPersonEndPoint).Methods("GET")
