@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -23,11 +24,14 @@ type Address struct {
 var people []Person
 
 func GetPeopleEndPoint(w http.ResponseWriter, req *http.Request) {
+	fmt.Println(req.Host + req.URL.Path)
 	json.NewEncoder(w).Encode(people)
 }
 
 func GetPersonEndPoint(w http.ResponseWriter, req *http.Request) {
 	params := mux.Vars(req)
+
+	fmt.Println(req.Host + req.URL.Path)
 
 	for _, item := range people {
 		if item.ID == params["id"] {
@@ -77,6 +81,6 @@ func main() {
 	router.HandleFunc("/people/{id}", CreatePersonEndPoint).Methods("POST")
 	router.HandleFunc("/people/{id}", DeletePersonEndPoint).Methods("DELETE")
 
-	log.Fatal(http.ListenAndServe(":3000", router))
+	log.Fatal(http.ListenAndServe(":3001", router))
 
 }
